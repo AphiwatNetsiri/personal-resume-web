@@ -1,0 +1,672 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(217, 70, 239, 0.25), transparent 28%),
+    radial-gradient(circle at 80% 70%, rgba(20, 184, 166, 0.18), transparent 30%),
+    #090006;
+  color: #ffffff;
+}
+
+.portfolio-container {
+  width: 90%;
+  max-width: 1200px;
+  min-height: 90vh;
+  margin: 40px auto;
+  display: flex;
+  background: #1b1b1f;
+  border: 10px solid #080003;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+/* ฝั่งซ้าย */
+.left-panel {
+  position: relative;
+  width: 38%;
+  min-height: 700px;
+  padding: 32px 24px;
+  text-align: center;
+  background: linear-gradient(180deg, #25262d, #12000a);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.side-menu {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #d946ef, #9333ea);
+  color: #12000a;
+  font-size: 24px;
+  border-radius: 8px;
+}
+
+.profile-image {
+  position: absolute;
+  inset: 56px 32px 32px 32px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.85));
+}
+
+.profile-info {
+  position: relative;
+  z-index: 1;
+  padding: 28px 12px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8));
+  border-radius: 14px;
+}
+
+.profile-info h1 {
+  margin: 0 0 8px;
+  font-size: 42px;
+  line-height: 1.1;
+}
+
+.role {
+  margin: 0;
+  color: #d946ef;
+  font-weight: bold;
+}
+
+.social-links {
+  margin-top: 24px;
+}
+
+.social-links a {
+  color: #ffffff;
+  margin: 0 8px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.social-links a:hover {
+  color: #d946ef;
+}
+
+/* ฝั่งขวา */
+.right-panel {
+  width: 62%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 40px 52px;
+  background: #202124;
+}
+
+.top-nav {
+  text-align: right;
+  margin-bottom: 48px;
+}
+
+.top-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.top-nav a:hover {
+  color: #d946ef;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #d946ef;
+  font-weight: 700;
+}
+
+.hero-section h2,
+.content-section h2 {
+  margin: 0 0 16px;
+  font-size: 46px;
+  line-height: 1.15;
+}
+
+.hero-section p,
+.content-section p {
+  color: #b8b8b8;
+  line-height: 1.8;
+}
+
+.content-section {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid #333;
+}
+
+.skill-category {
+  margin-top: 24px;
+}
+
+.skill-category h3 {
+  margin: 0 0 14px;
+  color: #d946ef;
+  font-size: 18px;
+}
+
+.skill-grid,
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.skill-card,
+.project-card {
+  padding: 20px;
+  background: #2a2b30;
+  border: 1px solid #383941;
+  border-radius: 12px;
+}
+
+.skill-card {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.project-card h3 {
+  margin: 0 0 10px;
+  color: #d946ef;
+}
+
+.project-card p {
+  margin: 0;
+}
+
+.footer {
+  margin-top: 40px;
+  color: #888;
+  font-size: 14px;
+}
+
+/* รองรับมือถือ */
+@media (max-width: 768px) {
+  .portfolio-container {
+    width: 100%;
+    margin: 0;
+    flex-direction: column;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+
+  .left-panel {
+    min-height: 520px;
+  }
+
+  .right-panel {
+    max-height: none;
+    padding: 32px 24px;
+  }
+
+  .top-nav {
+    text-align: left;
+  }
+
+  .top-nav a {
+    display: inline-block;
+    margin: 8px 12px 8px 0;
+  }
+
+  .hero-section h2,
+  .content-section h2 {
+    font-size: 34px;
+  }
+
+  .skill-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ข้อความอธิบายใต้หัวข้อ */
+.section-note {
+  margin-top: -6px;
+  color: #b8b8b8;
+}
+
+/* ทำให้การ์ดโปรเจกต์คลิกได้ */
+.project-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.project-link:hover {
+  transform: translateY(-4px);
+  border-color: #d946ef;
+  background: #30313a;
+}
+
+.project-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #14b8a6;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 14px;
+  color: #d946ef;
+  font-weight: 700;
+}
+
+/* หน้า Project Detail */
+.detail-page {
+  width: 90%;
+  max-width: 1200px;
+  min-height: 90vh;
+  margin: 40px auto;
+  background: #1b1b1f;
+  border: 10px solid #080003;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 40px;
+  border-bottom: 1px solid #333;
+  background: #202124;
+}
+
+.back-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.back-link:hover {
+  color: #d946ef;
+}
+
+.detail-nav a {
+  margin-left: 18px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.detail-nav a:hover {
+  color: #d946ef;
+}
+
+.detail-content {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  min-height: 680px;
+}
+
+.project-preview-panel {
+  position: relative;
+  padding: 40px;
+  background: linear-gradient(180deg, #25262d, #12000a);
+}
+
+.preview-card {
+  height: 100%;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px;
+  border: 1px solid #383941;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(217, 70, 239, 0.7), rgba(20, 184, 166, 0.45)),
+    #202124;
+}
+
+.preview-browser {
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.browser-dots {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.browser-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.65;
+}
+
+.preview-screen {
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.preview-screen h1 {
+  margin: 0;
+  font-size: 34px;
+}
+
+.preview-meta p {
+  margin: 8px 0 0;
+  color: #e5e5e5;
+}
+
+.detail-info-panel {
+  padding: 48px 56px;
+  background: #202124;
+}
+
+.detail-info-panel h1 {
+  margin: 0 0 16px;
+  font-size: 48px;
+  line-height: 1.1;
+}
+
+.detail-info-panel h2 {
+  margin-top: 36px;
+  margin-bottom: 12px;
+  font-size: 28px;
+}
+
+.detail-info-panel p,
+.detail-info-panel li {
+  color: #b8b8b8;
+  line-height: 1.8;
+}
+
+.detail-info-panel ul {
+  padding-left: 22px;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.tech-list span {
+  padding: 10px 14px;
+  border: 1px solid #383941;
+  border-radius: 999px;
+  background: #2a2b30;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #d946ef, #9333ea);
+  color: #ffffff;
+}
+
+.secondary-button {
+  border: 1px solid #383941;
+  color: #ffffff;
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .detail-page {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .detail-header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .detail-nav a {
+    display: inline-block;
+    margin: 8px 12px 0 0;
+  }
+
+  .detail-content {
+    grid-template-columns: 1fr;
+  }
+
+  .project-preview-panel,
+  .detail-info-panel {
+    padding: 28px 24px;
+  }
+
+  .preview-card {
+    min-height: 360px;
+  }
+
+  .detail-info-panel h1 {
+    font-size: 36px;
+  }
+}
+
+
+/* รูปภาพตัวอย่างโปรเจกต์ในหน้า Project Detail */
+.preview-screen {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.preview-screen img {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+}
+
+.preview-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+}
+
+/* Animated technology background */
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  background: #03020a;
+}
+
+/* พื้นหลังหลัก: สีชัดขึ้น แต่ยังคุมความเข้มเพื่อให้อ่านข้อมูลบนบอร์ดได้ง่าย */
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(6, 0, 18, 0.18), rgba(8, 0, 26, 0.05), rgba(0, 12, 36, 0.18)),
+    url("images/tech-bg.png") center / cover no-repeat;
+  filter: saturate(1.95) contrast(1.22) brightness(1.13);
+}
+
+/* เพิ่มแสง glow ให้พื้นหลังดูเด่นขึ้น */
+.animated-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(168, 85, 247, 0.42), transparent 30%),
+    radial-gradient(circle at 86% 22%, rgba(37, 99, 235, 0.38), transparent 28%),
+    radial-gradient(circle at 75% 82%, rgba(20, 184, 166, 0.28), transparent 30%),
+    rgba(0, 0, 0, 0.06);
+}
+
+/* บอร์ดข้อมูลอยู่ด้านหน้าสุดเสมอ */
+.portfolio-container,
+.detail-page {
+  position: relative;
+  z-index: 3;
+  backdrop-filter: blur(3px);
+  box-shadow:
+    0 35px 95px rgba(0, 0, 0, 0.70),
+    0 0 0 1px rgba(217, 70, 239, 0.24),
+    0 0 48px rgba(147, 51, 234, 0.20);
+}
+
+/* คุมความทึบของบอร์ดให้อ่านง่าย โดยไม่ทำให้พื้นหลังหายไป */
+.left-panel,
+.right-panel,
+.detail-header,
+.detail-info-panel {
+  background-color: rgba(32, 33, 36, 0.94);
+}
+
+/* ไอคอนลอย: ชัดขึ้น มี glow และอยู่หลังบอร์ดข้อมูล */
+.float-icon {
+  position: absolute;
+  z-index: 1;
+  width: 82px;
+  opacity: 0.68;
+  filter:
+    drop-shadow(0 0 18px rgba(217, 70, 239, 0.85))
+    drop-shadow(0 0 34px rgba(37, 99, 235, 0.60));
+  animation: floatIcon 8s ease-in-out infinite alternate;
+}
+
+/* แสดงไอคอนฝั่งซ้ายทั้งหมดให้อยู่ในจอ และไม่เข้าไปทับบอร์ด */
+.icon-html { top: 12%; left: 3.5%; width: 82px; animation-delay: 0s; }
+.icon-css { top: 34%; left: 4%; width: 80px; animation-delay: 1.1s; }
+.icon-tailwind { top: 56%; left: 5%; width: 100px; animation-delay: 2.4s; }
+.icon-js { top: 78%; left: 7.5%; width: 86px; animation-delay: 0.6s; }
+
+/* แสดงไอคอนฝั่งขวาทั้งหมดให้อยู่ในจอ และไม่เข้าไปทับบอร์ด */
+.icon-line { top: 12%; right: 7%; width: 82px; animation-delay: 1.7s; }
+.icon-ollama { top: 34%; right: 4%; width: 86px; animation-delay: 2s; }
+.icon-github { top: 55%; right: 5%; width: 82px; animation-delay: 0.3s; }
+.icon-gpt { top: 76%; right: 8%; width: 96px; animation-delay: 1.3s; }
+
+@keyframes floatIcon {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-4deg) scale(1);
+  }
+  100% {
+    transform: translate3d(14px, -20px, 0) rotate(6deg) scale(1.06);
+  }
+}
+
+/* หน้าจอกลาง: ลดความเด่นนิดหน่อยเพื่อไม่ให้เบียดบอร์ด */
+@media (max-width: 1300px) {
+  .float-icon {
+    width: 62px;
+    opacity: 0.42;
+  }
+
+  .icon-tailwind,
+  .icon-gpt {
+    width: 74px;
+  }
+
+  .icon-html,
+  .icon-css,
+  .icon-tailwind,
+  .icon-js {
+    left: 1.5%;
+  }
+
+  .icon-line,
+  .icon-ollama,
+  .icon-github,
+  .icon-gpt {
+    right: 1.5%;
+  }
+}
+
+/* มือถือ: ลดความเด่นของไอคอน เพื่อไม่บังเนื้อหา */
+@media (max-width: 768px) {
+  .animated-bg {
+    background-position: center;
+  }
+
+  .float-icon {
+    width: 40px;
+    opacity: 0.16;
+  }
+
+  .icon-tailwind,
+  .icon-gpt {
+    width: 50px;
+  }
+}
